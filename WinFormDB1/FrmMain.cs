@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,9 +14,35 @@ using System.Configuration;
 namespace WinFormDB1 {
     public partial class FrmMain : Form {
 
-        string conn = Properties.Settings.Default.dbConnection;
+        string connStr = Properties.Settings.Default.dbConnection2;
         public FrmMain() {
             InitializeComponent();
+
+            using (SqlConnection con = new SqlConnection( connStr )) {
+                 con.Open();
+                SqlCommand cmd = new SqlCommand("SELECT * FROM Invoices", con);
+
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill( dt);
+
+                dgvMain.DataSource = dt;
+                
+                con.Close();
+
+            }
+
+            schoolDBEntities db = new schoolDBEntities();
+            var sql = from i in db.Invoices
+                      select new {
+                          i.InvoiceID,
+                          i.InvDate,
+                          i.Customer.LName,
+                      };
+            
+            dgvMain2.DataSource = sql.ToList();
+
+
         }
     }
 }

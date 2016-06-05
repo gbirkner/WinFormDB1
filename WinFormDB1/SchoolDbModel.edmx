@@ -1,0 +1,966 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="schoolDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Addresses">
+          <Key>
+            <PropertyRef Name="AddressID" />
+          </Key>
+          <Property Name="AddressID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CountryID" Type="char" MaxLength="2" Nullable="false" />
+          <Property Name="PLZ" Type="int" Nullable="false" />
+          <Property Name="City" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="Street" Type="nvarchar" MaxLength="255" />
+          <Property Name="StreetNr" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="AddressTypes">
+          <Key>
+            <PropertyRef Name="AddressTypeID" />
+          </Key>
+          <Property Name="AddressTypeID" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="BankDetails">
+          <Key>
+            <PropertyRef Name="IBAN" />
+          </Key>
+          <Property Name="IBAN" Type="nvarchar" MaxLength="34" Nullable="false" />
+          <Property Name="BIC" Type="nvarchar" MaxLength="11" />
+          <Property Name="CustomerID" Type="int" Nullable="false" />
+          <Property Name="BankDetailNr" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Cities">
+          <Key>
+            <PropertyRef Name="CountryID" />
+            <PropertyRef Name="PLZ" />
+            <PropertyRef Name="City" />
+          </Key>
+          <Property Name="CountryID" Type="char" MaxLength="2" Nullable="false" />
+          <Property Name="PLZ" Type="int" Nullable="false" />
+          <Property Name="City" Type="nvarchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Connections">
+          <Key>
+            <PropertyRef Name="ConnectionID" />
+          </Key>
+          <Property Name="ConnectionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ConnectionTypeID" Type="int" Nullable="false" />
+          <Property Name="ConnectionNr" Type="int" Nullable="false" />
+          <Property Name="CustomerID" Type="int" Nullable="false" />
+          <Property Name="Connection" Type="nvarchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ConnectionTypes">
+          <Key>
+            <PropertyRef Name="ConnectionTypeID" />
+          </Key>
+          <Property Name="ConnectionTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="100" />
+          <Property Name="TitleShort" Type="nvarchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Countries">
+          <Key>
+            <PropertyRef Name="CountryID" />
+          </Key>
+          <Property Name="CountryID" Type="char" MaxLength="2" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="IntTitle" Type="nvarchar" MaxLength="100" />
+          <Property Name="ShortTitle" Type="nvarchar" MaxLength="10" />
+          <Property Name="Capital" Type="nvarchar" MaxLength="255" />
+          <Property Name="Continent" Type="nvarchar" MaxLength="255" />
+          <Property Name="Currency" Type="nvarchar" MaxLength="5" />
+          <Property Name="Domain" Type="nvarchar" MaxLength="5" />
+          <Property Name="CountryCode" Type="nvarchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="CustomerAddresses">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+            <PropertyRef Name="AddressID" />
+            <PropertyRef Name="AddressTypeID" />
+          </Key>
+          <Property Name="CustomerID" Type="int" Nullable="false" />
+          <Property Name="AddressID" Type="int" Nullable="false" />
+          <Property Name="AddressTypeID" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="AddressTypeNr" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Customers">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FName" Type="nvarchar" MaxLength="255" />
+          <Property Name="LName" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="Birthday" Type="smalldatetime" />
+        </EntityType>
+        <EntityType Name="InvoicePositions">
+          <Key>
+            <PropertyRef Name="InvoiceID" />
+            <PropertyRef Name="PositionNr" />
+          </Key>
+          <Property Name="InvoiceID" Type="int" Nullable="false" />
+          <Property Name="PositionNr" Type="int" Nullable="false" />
+          <Property Name="ProductID" Type="int" Nullable="false" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+          <Property Name="Discount" Type="real" Nullable="false" />
+          <Property Name="Amount" Type="real" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Invoices">
+          <Key>
+            <PropertyRef Name="InvoiceID" />
+          </Key>
+          <Property Name="InvoiceID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="InvDate" Type="smalldatetime" Nullable="false" />
+          <Property Name="CustomerID" Type="int" Nullable="false" />
+          <Property Name="IBAN" Type="nvarchar" MaxLength="34" />
+          <Property Name="DelAddressID" Type="int" />
+          <Property Name="DelAddressTypeID" Type="char" MaxLength="1" />
+          <Property Name="InvAddressID" Type="int" />
+          <Property Name="InvAddressTypeID" Type="char" MaxLength="1" />
+          <Property Name="Discount" Type="real" Nullable="false" />
+          <Property Name="Delivered" Type="bit" Nullable="false" />
+          <Property Name="Paid" Type="bit" Nullable="false" />
+          <Property Name="Cancelled" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Products">
+          <Key>
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="ProductID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Amount" Type="real" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="254" Nullable="false" />
+        </EntityType>
+        <Association Name="fk_AddressesCity">
+          <End Role="Cities" Type="Self.Cities" Multiplicity="1" />
+          <End Role="Addresses" Type="Self.Addresses" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cities">
+              <PropertyRef Name="CountryID" />
+              <PropertyRef Name="PLZ" />
+              <PropertyRef Name="City" />
+            </Principal>
+            <Dependent Role="Addresses">
+              <PropertyRef Name="CountryID" />
+              <PropertyRef Name="PLZ" />
+              <PropertyRef Name="City" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_BankDetailsCustomer">
+          <End Role="Customers" Type="Self.Customers" Multiplicity="1" />
+          <End Role="BankDetails" Type="Self.BankDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="CustomerID" />
+            </Principal>
+            <Dependent Role="BankDetails">
+              <PropertyRef Name="CustomerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_CitiesCountryID">
+          <End Role="Countries" Type="Self.Countries" Multiplicity="1" />
+          <End Role="Cities" Type="Self.Cities" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Countries">
+              <PropertyRef Name="CountryID" />
+            </Principal>
+            <Dependent Role="Cities">
+              <PropertyRef Name="CountryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_ConnectionsCustomer">
+          <End Role="Customers" Type="Self.Customers" Multiplicity="1" />
+          <End Role="Connections" Type="Self.Connections" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="CustomerID" />
+            </Principal>
+            <Dependent Role="Connections">
+              <PropertyRef Name="CustomerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_ConnectionsTypeID">
+          <End Role="ConnectionTypes" Type="Self.ConnectionTypes" Multiplicity="1" />
+          <End Role="Connections" Type="Self.Connections" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ConnectionTypes">
+              <PropertyRef Name="ConnectionTypeID" />
+            </Principal>
+            <Dependent Role="Connections">
+              <PropertyRef Name="ConnectionTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_CustomerAddressesAddress">
+          <End Role="Addresses" Type="Self.Addresses" Multiplicity="1" />
+          <End Role="CustomerAddresses" Type="Self.CustomerAddresses" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Addresses">
+              <PropertyRef Name="AddressID" />
+            </Principal>
+            <Dependent Role="CustomerAddresses">
+              <PropertyRef Name="AddressID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_CustomerAddressesCustomer">
+          <End Role="Customers" Type="Self.Customers" Multiplicity="1" />
+          <End Role="CustomerAddresses" Type="Self.CustomerAddresses" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="CustomerID" />
+            </Principal>
+            <Dependent Role="CustomerAddresses">
+              <PropertyRef Name="CustomerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_CustomerAddressesType">
+          <End Role="AddressTypes" Type="Self.AddressTypes" Multiplicity="1" />
+          <End Role="CustomerAddresses" Type="Self.CustomerAddresses" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AddressTypes">
+              <PropertyRef Name="AddressTypeID" />
+            </Principal>
+            <Dependent Role="CustomerAddresses">
+              <PropertyRef Name="AddressTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_InvoicePositionsInvoice">
+          <End Role="Invoices" Type="Self.Invoices" Multiplicity="1" />
+          <End Role="InvoicePositions" Type="Self.InvoicePositions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Invoices">
+              <PropertyRef Name="InvoiceID" />
+            </Principal>
+            <Dependent Role="InvoicePositions">
+              <PropertyRef Name="InvoiceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_InvoicePositionsProduct">
+          <End Role="Products" Type="Self.Products" Multiplicity="1" />
+          <End Role="InvoicePositions" Type="Self.InvoicePositions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="InvoicePositions">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_InvoicesCustomer">
+          <End Role="Customers" Type="Self.Customers" Multiplicity="1" />
+          <End Role="Invoices" Type="Self.Invoices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="CustomerID" />
+            </Principal>
+            <Dependent Role="Invoices">
+              <PropertyRef Name="CustomerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_InvoicesDelAddress">
+          <End Role="CustomerAddresses" Type="Self.CustomerAddresses" Multiplicity="0..1" />
+          <End Role="Invoices" Type="Self.Invoices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CustomerAddresses">
+              <PropertyRef Name="CustomerID" />
+              <PropertyRef Name="AddressID" />
+              <PropertyRef Name="AddressTypeID" />
+            </Principal>
+            <Dependent Role="Invoices">
+              <PropertyRef Name="CustomerID" />
+              <PropertyRef Name="DelAddressID" />
+              <PropertyRef Name="DelAddressTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_InvoicesInvAddress">
+          <End Role="CustomerAddresses" Type="Self.CustomerAddresses" Multiplicity="0..1" />
+          <End Role="Invoices" Type="Self.Invoices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CustomerAddresses">
+              <PropertyRef Name="CustomerID" />
+              <PropertyRef Name="AddressID" />
+              <PropertyRef Name="AddressTypeID" />
+            </Principal>
+            <Dependent Role="Invoices">
+              <PropertyRef Name="CustomerID" />
+              <PropertyRef Name="InvAddressID" />
+              <PropertyRef Name="InvAddressTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="getInvoicePositions" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="customerID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="getNextAddressTypeNr" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int">
+          <Parameter Name="customerID" Type="int" Mode="In" />
+          <Parameter Name="addressID" Type="int" Mode="In" />
+          <Parameter Name="addressTypeID" Type="char" Mode="In" />
+        </Function>
+        <EntityContainer Name="schoolDBModelStoreContainer">
+          <EntitySet Name="Addresses" EntityType="Self.Addresses" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AddressTypes" EntityType="Self.AddressTypes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BankDetails" EntityType="Self.BankDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cities" EntityType="Self.Cities" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Connections" EntityType="Self.Connections" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ConnectionTypes" EntityType="Self.ConnectionTypes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Countries" EntityType="Self.Countries" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CustomerAddresses" EntityType="Self.CustomerAddresses" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InvoicePositions" EntityType="Self.InvoicePositions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Invoices" EntityType="Self.Invoices" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="fk_AddressesCity" Association="Self.fk_AddressesCity">
+            <End Role="Cities" EntitySet="Cities" />
+            <End Role="Addresses" EntitySet="Addresses" />
+          </AssociationSet>
+          <AssociationSet Name="fk_BankDetailsCustomer" Association="Self.fk_BankDetailsCustomer">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="BankDetails" EntitySet="BankDetails" />
+          </AssociationSet>
+          <AssociationSet Name="fk_CitiesCountryID" Association="Self.fk_CitiesCountryID">
+            <End Role="Countries" EntitySet="Countries" />
+            <End Role="Cities" EntitySet="Cities" />
+          </AssociationSet>
+          <AssociationSet Name="fk_ConnectionsCustomer" Association="Self.fk_ConnectionsCustomer">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="Connections" EntitySet="Connections" />
+          </AssociationSet>
+          <AssociationSet Name="fk_ConnectionsTypeID" Association="Self.fk_ConnectionsTypeID">
+            <End Role="ConnectionTypes" EntitySet="ConnectionTypes" />
+            <End Role="Connections" EntitySet="Connections" />
+          </AssociationSet>
+          <AssociationSet Name="fk_CustomerAddressesAddress" Association="Self.fk_CustomerAddressesAddress">
+            <End Role="Addresses" EntitySet="Addresses" />
+            <End Role="CustomerAddresses" EntitySet="CustomerAddresses" />
+          </AssociationSet>
+          <AssociationSet Name="fk_CustomerAddressesCustomer" Association="Self.fk_CustomerAddressesCustomer">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="CustomerAddresses" EntitySet="CustomerAddresses" />
+          </AssociationSet>
+          <AssociationSet Name="fk_CustomerAddressesType" Association="Self.fk_CustomerAddressesType">
+            <End Role="AddressTypes" EntitySet="AddressTypes" />
+            <End Role="CustomerAddresses" EntitySet="CustomerAddresses" />
+          </AssociationSet>
+          <AssociationSet Name="fk_InvoicePositionsInvoice" Association="Self.fk_InvoicePositionsInvoice">
+            <End Role="Invoices" EntitySet="Invoices" />
+            <End Role="InvoicePositions" EntitySet="InvoicePositions" />
+          </AssociationSet>
+          <AssociationSet Name="fk_InvoicePositionsProduct" Association="Self.fk_InvoicePositionsProduct">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="InvoicePositions" EntitySet="InvoicePositions" />
+          </AssociationSet>
+          <AssociationSet Name="fk_InvoicesCustomer" Association="Self.fk_InvoicesCustomer">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="Invoices" EntitySet="Invoices" />
+          </AssociationSet>
+          <AssociationSet Name="fk_InvoicesDelAddress" Association="Self.fk_InvoicesDelAddress">
+            <End Role="CustomerAddresses" EntitySet="CustomerAddresses" />
+            <End Role="Invoices" EntitySet="Invoices" />
+          </AssociationSet>
+          <AssociationSet Name="fk_InvoicesInvAddress" Association="Self.fk_InvoicesInvAddress">
+            <End Role="CustomerAddresses" EntitySet="CustomerAddresses" />
+            <End Role="Invoices" EntitySet="Invoices" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="schoolDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Address">
+          <Key>
+            <PropertyRef Name="AddressID" />
+          </Key>
+          <Property Name="AddressID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CountryID" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="PLZ" Type="Int32" Nullable="false" />
+          <Property Name="City" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Street" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="StreetNr" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="City1" Relationship="Self.fk_AddressesCity" FromRole="Addresses" ToRole="Cities" />
+          <NavigationProperty Name="CustomerAddresses" Relationship="Self.fk_CustomerAddressesAddress" FromRole="Addresses" ToRole="CustomerAddresses" />
+        </EntityType>
+        <EntityType Name="AddressType">
+          <Key>
+            <PropertyRef Name="AddressTypeID" />
+          </Key>
+          <Property Name="AddressTypeID" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CustomerAddresses" Relationship="Self.fk_CustomerAddressesType" FromRole="AddressTypes" ToRole="CustomerAddresses" />
+        </EntityType>
+        <EntityType Name="BankDetail">
+          <Key>
+            <PropertyRef Name="IBAN" />
+          </Key>
+          <Property Name="IBAN" Type="String" MaxLength="34" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="BIC" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerID" Type="Int32" Nullable="false" />
+          <Property Name="BankDetailNr" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Customer" Relationship="Self.fk_BankDetailsCustomer" FromRole="BankDetails" ToRole="Customers" />
+        </EntityType>
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="CountryID" />
+            <PropertyRef Name="PLZ" />
+            <PropertyRef Name="City1" />
+          </Key>
+          <Property Name="CountryID" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="PLZ" Type="Int32" Nullable="false" />
+          <Property Name="City1" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Addresses" Relationship="Self.fk_AddressesCity" FromRole="Cities" ToRole="Addresses" />
+          <NavigationProperty Name="Country" Relationship="Self.fk_CitiesCountryID" FromRole="Cities" ToRole="Countries" />
+        </EntityType>
+        <EntityType Name="Connection">
+          <Key>
+            <PropertyRef Name="ConnectionID" />
+          </Key>
+          <Property Name="ConnectionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ConnectionTypeID" Type="Int32" Nullable="false" />
+          <Property Name="ConnectionNr" Type="Int32" Nullable="false" />
+          <Property Name="CustomerID" Type="Int32" Nullable="false" />
+          <Property Name="Connection1" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Customer" Relationship="Self.fk_ConnectionsCustomer" FromRole="Connections" ToRole="Customers" />
+          <NavigationProperty Name="ConnectionType" Relationship="Self.fk_ConnectionsTypeID" FromRole="Connections" ToRole="ConnectionTypes" />
+        </EntityType>
+        <EntityType Name="ConnectionType">
+          <Key>
+            <PropertyRef Name="ConnectionTypeID" />
+          </Key>
+          <Property Name="ConnectionTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="TitleShort" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Connections" Relationship="Self.fk_ConnectionsTypeID" FromRole="ConnectionTypes" ToRole="Connections" />
+        </EntityType>
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="CountryID" />
+          </Key>
+          <Property Name="CountryID" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IntTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ShortTitle" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Capital" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Continent" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Currency" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="Domain" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="CountryCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Cities" Relationship="Self.fk_CitiesCountryID" FromRole="Countries" ToRole="Cities" />
+        </EntityType>
+        <EntityType Name="CustomerAddress">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+            <PropertyRef Name="AddressID" />
+            <PropertyRef Name="AddressTypeID" />
+          </Key>
+          <Property Name="CustomerID" Type="Int32" Nullable="false" />
+          <Property Name="AddressID" Type="Int32" Nullable="false" />
+          <Property Name="AddressTypeID" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="AddressTypeNr" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Address" Relationship="Self.fk_CustomerAddressesAddress" FromRole="CustomerAddresses" ToRole="Addresses" />
+          <NavigationProperty Name="AddressType" Relationship="Self.fk_CustomerAddressesType" FromRole="CustomerAddresses" ToRole="AddressTypes" />
+          <NavigationProperty Name="Customer" Relationship="Self.fk_CustomerAddressesCustomer" FromRole="CustomerAddresses" ToRole="Customers" />
+          <NavigationProperty Name="Invoices" Relationship="Self.fk_InvoicesDelAddress" FromRole="CustomerAddresses" ToRole="Invoices" />
+          <NavigationProperty Name="Invoices1" Relationship="Self.fk_InvoicesInvAddress" FromRole="CustomerAddresses" ToRole="Invoices" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="LName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Birthday" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="BankDetails" Relationship="Self.fk_BankDetailsCustomer" FromRole="Customers" ToRole="BankDetails" />
+          <NavigationProperty Name="Connections" Relationship="Self.fk_ConnectionsCustomer" FromRole="Customers" ToRole="Connections" />
+          <NavigationProperty Name="CustomerAddresses" Relationship="Self.fk_CustomerAddressesCustomer" FromRole="Customers" ToRole="CustomerAddresses" />
+          <NavigationProperty Name="Invoices" Relationship="Self.fk_InvoicesCustomer" FromRole="Customers" ToRole="Invoices" />
+        </EntityType>
+        <EntityType Name="InvoicePosition">
+          <Key>
+            <PropertyRef Name="InvoiceID" />
+            <PropertyRef Name="PositionNr" />
+          </Key>
+          <Property Name="InvoiceID" Type="Int32" Nullable="false" />
+          <Property Name="PositionNr" Type="Int32" Nullable="false" />
+          <Property Name="ProductID" Type="Int32" Nullable="false" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <Property Name="Discount" Type="Single" Nullable="false" />
+          <Property Name="Amount" Type="Single" Nullable="false" />
+          <NavigationProperty Name="Invoice" Relationship="Self.fk_InvoicePositionsInvoice" FromRole="InvoicePositions" ToRole="Invoices" />
+          <NavigationProperty Name="Product" Relationship="Self.fk_InvoicePositionsProduct" FromRole="InvoicePositions" ToRole="Products" />
+        </EntityType>
+        <EntityType Name="Invoice">
+          <Key>
+            <PropertyRef Name="InvoiceID" />
+          </Key>
+          <Property Name="InvoiceID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="InvDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="CustomerID" Type="Int32" Nullable="false" />
+          <Property Name="IBAN" Type="String" MaxLength="34" FixedLength="false" Unicode="true" />
+          <Property Name="DelAddressID" Type="Int32" />
+          <Property Name="DelAddressTypeID" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="InvAddressID" Type="Int32" />
+          <Property Name="InvAddressTypeID" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Discount" Type="Single" Nullable="false" />
+          <Property Name="Delivered" Type="Boolean" Nullable="false" />
+          <Property Name="Paid" Type="Boolean" Nullable="false" />
+          <Property Name="Cancelled" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="CustomerAddress" Relationship="Self.fk_InvoicesDelAddress" FromRole="Invoices" ToRole="CustomerAddresses" />
+          <NavigationProperty Name="CustomerAddress1" Relationship="Self.fk_InvoicesInvAddress" FromRole="Invoices" ToRole="CustomerAddresses" />
+          <NavigationProperty Name="Customer" Relationship="Self.fk_InvoicesCustomer" FromRole="Invoices" ToRole="Customers" />
+          <NavigationProperty Name="InvoicePositions" Relationship="Self.fk_InvoicePositionsInvoice" FromRole="Invoices" ToRole="InvoicePositions" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="ProductID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Amount" Type="Single" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="254" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="InvoicePositions" Relationship="Self.fk_InvoicePositionsProduct" FromRole="Products" ToRole="InvoicePositions" />
+        </EntityType>
+        <Association Name="fk_AddressesCity">
+          <End Role="Cities" Type="Self.City" Multiplicity="1" />
+          <End Role="Addresses" Type="Self.Address" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cities">
+              <PropertyRef Name="CountryID" />
+              <PropertyRef Name="PLZ" />
+              <PropertyRef Name="City1" />
+            </Principal>
+            <Dependent Role="Addresses">
+              <PropertyRef Name="CountryID" />
+              <PropertyRef Name="PLZ" />
+              <PropertyRef Name="City" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_CustomerAddressesAddress">
+          <End Role="Addresses" Type="Self.Address" Multiplicity="1" />
+          <End Role="CustomerAddresses" Type="Self.CustomerAddress" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Addresses">
+              <PropertyRef Name="AddressID" />
+            </Principal>
+            <Dependent Role="CustomerAddresses">
+              <PropertyRef Name="AddressID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_CustomerAddressesType">
+          <End Role="AddressTypes" Type="Self.AddressType" Multiplicity="1" />
+          <End Role="CustomerAddresses" Type="Self.CustomerAddress" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AddressTypes">
+              <PropertyRef Name="AddressTypeID" />
+            </Principal>
+            <Dependent Role="CustomerAddresses">
+              <PropertyRef Name="AddressTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_BankDetailsCustomer">
+          <End Role="Customers" Type="Self.Customer" Multiplicity="1" />
+          <End Role="BankDetails" Type="Self.BankDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="CustomerID" />
+            </Principal>
+            <Dependent Role="BankDetails">
+              <PropertyRef Name="CustomerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_CitiesCountryID">
+          <End Role="Countries" Type="Self.Country" Multiplicity="1" />
+          <End Role="Cities" Type="Self.City" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Countries">
+              <PropertyRef Name="CountryID" />
+            </Principal>
+            <Dependent Role="Cities">
+              <PropertyRef Name="CountryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_ConnectionsCustomer">
+          <End Role="Customers" Type="Self.Customer" Multiplicity="1" />
+          <End Role="Connections" Type="Self.Connection" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="CustomerID" />
+            </Principal>
+            <Dependent Role="Connections">
+              <PropertyRef Name="CustomerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_ConnectionsTypeID">
+          <End Role="ConnectionTypes" Type="Self.ConnectionType" Multiplicity="1" />
+          <End Role="Connections" Type="Self.Connection" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ConnectionTypes">
+              <PropertyRef Name="ConnectionTypeID" />
+            </Principal>
+            <Dependent Role="Connections">
+              <PropertyRef Name="ConnectionTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_CustomerAddressesCustomer">
+          <End Role="Customers" Type="Self.Customer" Multiplicity="1" />
+          <End Role="CustomerAddresses" Type="Self.CustomerAddress" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="CustomerID" />
+            </Principal>
+            <Dependent Role="CustomerAddresses">
+              <PropertyRef Name="CustomerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_InvoicesDelAddress">
+          <End Role="CustomerAddresses" Type="Self.CustomerAddress" Multiplicity="0..1" />
+          <End Role="Invoices" Type="Self.Invoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CustomerAddresses">
+              <PropertyRef Name="CustomerID" />
+              <PropertyRef Name="AddressID" />
+              <PropertyRef Name="AddressTypeID" />
+            </Principal>
+            <Dependent Role="Invoices">
+              <PropertyRef Name="CustomerID" />
+              <PropertyRef Name="DelAddressID" />
+              <PropertyRef Name="DelAddressTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_InvoicesInvAddress">
+          <End Role="CustomerAddresses" Type="Self.CustomerAddress" Multiplicity="0..1" />
+          <End Role="Invoices" Type="Self.Invoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CustomerAddresses">
+              <PropertyRef Name="CustomerID" />
+              <PropertyRef Name="AddressID" />
+              <PropertyRef Name="AddressTypeID" />
+            </Principal>
+            <Dependent Role="Invoices">
+              <PropertyRef Name="CustomerID" />
+              <PropertyRef Name="InvAddressID" />
+              <PropertyRef Name="InvAddressTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_InvoicesCustomer">
+          <End Role="Customers" Type="Self.Customer" Multiplicity="1" />
+          <End Role="Invoices" Type="Self.Invoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="CustomerID" />
+            </Principal>
+            <Dependent Role="Invoices">
+              <PropertyRef Name="CustomerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_InvoicePositionsInvoice">
+          <End Role="Invoices" Type="Self.Invoice" Multiplicity="1" />
+          <End Role="InvoicePositions" Type="Self.InvoicePosition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Invoices">
+              <PropertyRef Name="InvoiceID" />
+            </Principal>
+            <Dependent Role="InvoicePositions">
+              <PropertyRef Name="InvoiceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_InvoicePositionsProduct">
+          <End Role="Products" Type="Self.Product" Multiplicity="1" />
+          <End Role="InvoicePositions" Type="Self.InvoicePosition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="InvoicePositions">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="schoolDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Addresses" EntityType="Self.Address" />
+          <EntitySet Name="AddressTypes" EntityType="Self.AddressType" />
+          <EntitySet Name="BankDetails" EntityType="Self.BankDetail" />
+          <EntitySet Name="Cities" EntityType="Self.City" />
+          <EntitySet Name="Connections" EntityType="Self.Connection" />
+          <EntitySet Name="ConnectionTypes" EntityType="Self.ConnectionType" />
+          <EntitySet Name="Countries" EntityType="Self.Country" />
+          <EntitySet Name="CustomerAddresses" EntityType="Self.CustomerAddress" />
+          <EntitySet Name="Customers" EntityType="Self.Customer" />
+          <EntitySet Name="InvoicePositions" EntityType="Self.InvoicePosition" />
+          <EntitySet Name="Invoices" EntityType="Self.Invoice" />
+          <EntitySet Name="Products" EntityType="Self.Product" />
+          <AssociationSet Name="fk_AddressesCity" Association="Self.fk_AddressesCity">
+            <End Role="Cities" EntitySet="Cities" />
+            <End Role="Addresses" EntitySet="Addresses" />
+          </AssociationSet>
+          <AssociationSet Name="fk_CustomerAddressesAddress" Association="Self.fk_CustomerAddressesAddress">
+            <End Role="Addresses" EntitySet="Addresses" />
+            <End Role="CustomerAddresses" EntitySet="CustomerAddresses" />
+          </AssociationSet>
+          <AssociationSet Name="fk_CustomerAddressesType" Association="Self.fk_CustomerAddressesType">
+            <End Role="AddressTypes" EntitySet="AddressTypes" />
+            <End Role="CustomerAddresses" EntitySet="CustomerAddresses" />
+          </AssociationSet>
+          <AssociationSet Name="fk_BankDetailsCustomer" Association="Self.fk_BankDetailsCustomer">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="BankDetails" EntitySet="BankDetails" />
+          </AssociationSet>
+          <AssociationSet Name="fk_CitiesCountryID" Association="Self.fk_CitiesCountryID">
+            <End Role="Countries" EntitySet="Countries" />
+            <End Role="Cities" EntitySet="Cities" />
+          </AssociationSet>
+          <AssociationSet Name="fk_ConnectionsCustomer" Association="Self.fk_ConnectionsCustomer">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="Connections" EntitySet="Connections" />
+          </AssociationSet>
+          <AssociationSet Name="fk_ConnectionsTypeID" Association="Self.fk_ConnectionsTypeID">
+            <End Role="ConnectionTypes" EntitySet="ConnectionTypes" />
+            <End Role="Connections" EntitySet="Connections" />
+          </AssociationSet>
+          <AssociationSet Name="fk_CustomerAddressesCustomer" Association="Self.fk_CustomerAddressesCustomer">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="CustomerAddresses" EntitySet="CustomerAddresses" />
+          </AssociationSet>
+          <AssociationSet Name="fk_InvoicesDelAddress" Association="Self.fk_InvoicesDelAddress">
+            <End Role="CustomerAddresses" EntitySet="CustomerAddresses" />
+            <End Role="Invoices" EntitySet="Invoices" />
+          </AssociationSet>
+          <AssociationSet Name="fk_InvoicesInvAddress" Association="Self.fk_InvoicesInvAddress">
+            <End Role="CustomerAddresses" EntitySet="CustomerAddresses" />
+            <End Role="Invoices" EntitySet="Invoices" />
+          </AssociationSet>
+          <AssociationSet Name="fk_InvoicesCustomer" Association="Self.fk_InvoicesCustomer">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="Invoices" EntitySet="Invoices" />
+          </AssociationSet>
+          <AssociationSet Name="fk_InvoicePositionsInvoice" Association="Self.fk_InvoicePositionsInvoice">
+            <End Role="Invoices" EntitySet="Invoices" />
+            <End Role="InvoicePositions" EntitySet="InvoicePositions" />
+          </AssociationSet>
+          <AssociationSet Name="fk_InvoicePositionsProduct" Association="Self.fk_InvoicePositionsProduct">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="InvoicePositions" EntitySet="InvoicePositions" />
+          </AssociationSet>
+          <FunctionImport Name="getInvoicePositions" ReturnType="Collection(schoolDBModel.getInvoicePositions_Result)">
+          <Parameter Name="customerID" Mode="In" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="getInvoicePositions_Result">
+          <Property Type="Int32" Name="InvoiceID" Nullable="false" />
+          <Property Type="DateTime" Name="InvDate" Nullable="false" Precision="16" />
+          <Property Type="Single" Name="Discount" Nullable="false" />
+          <Property Type="Boolean" Name="Delivered" Nullable="false" />
+          <Property Type="Boolean" Name="Paid" Nullable="false" />
+          <Property Type="Boolean" Name="Cancelled" Nullable="false" />
+          <Property Type="Int32" Name="PositionNr" Nullable="false" />
+          <Property Type="Int32" Name="Quantity" Nullable="false" />
+          <Property Type="Single" Name="Discount1" Nullable="false" />
+          <Property Type="Single" Name="Amount" Nullable="false" />
+          <Property Type="Single" Name="PosAmount" Nullable="true" />
+          <Property Type="String" Name="Customer" Nullable="true" MaxLength="511" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="schoolDBModelStoreContainer" CdmEntityContainer="schoolDBEntities">
+          <EntitySetMapping Name="Addresses">
+            <EntityTypeMapping TypeName="schoolDBModel.Address">
+              <MappingFragment StoreEntitySet="Addresses">
+                <ScalarProperty Name="AddressID" ColumnName="AddressID" />
+                <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+                <ScalarProperty Name="PLZ" ColumnName="PLZ" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Street" ColumnName="Street" />
+                <ScalarProperty Name="StreetNr" ColumnName="StreetNr" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AddressTypes">
+            <EntityTypeMapping TypeName="schoolDBModel.AddressType">
+              <MappingFragment StoreEntitySet="AddressTypes">
+                <ScalarProperty Name="AddressTypeID" ColumnName="AddressTypeID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BankDetails">
+            <EntityTypeMapping TypeName="schoolDBModel.BankDetail">
+              <MappingFragment StoreEntitySet="BankDetails">
+                <ScalarProperty Name="IBAN" ColumnName="IBAN" />
+                <ScalarProperty Name="BIC" ColumnName="BIC" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="BankDetailNr" ColumnName="BankDetailNr" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cities">
+            <EntityTypeMapping TypeName="schoolDBModel.City">
+              <MappingFragment StoreEntitySet="Cities">
+                <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+                <ScalarProperty Name="PLZ" ColumnName="PLZ" />
+                <ScalarProperty Name="City1" ColumnName="City" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Connections">
+            <EntityTypeMapping TypeName="schoolDBModel.Connection">
+              <MappingFragment StoreEntitySet="Connections">
+                <ScalarProperty Name="ConnectionID" ColumnName="ConnectionID" />
+                <ScalarProperty Name="ConnectionTypeID" ColumnName="ConnectionTypeID" />
+                <ScalarProperty Name="ConnectionNr" ColumnName="ConnectionNr" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="Connection1" ColumnName="Connection" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ConnectionTypes">
+            <EntityTypeMapping TypeName="schoolDBModel.ConnectionType">
+              <MappingFragment StoreEntitySet="ConnectionTypes">
+                <ScalarProperty Name="ConnectionTypeID" ColumnName="ConnectionTypeID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="TitleShort" ColumnName="TitleShort" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Countries">
+            <EntityTypeMapping TypeName="schoolDBModel.Country">
+              <MappingFragment StoreEntitySet="Countries">
+                <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="IntTitle" ColumnName="IntTitle" />
+                <ScalarProperty Name="ShortTitle" ColumnName="ShortTitle" />
+                <ScalarProperty Name="Capital" ColumnName="Capital" />
+                <ScalarProperty Name="Continent" ColumnName="Continent" />
+                <ScalarProperty Name="Currency" ColumnName="Currency" />
+                <ScalarProperty Name="Domain" ColumnName="Domain" />
+                <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CustomerAddresses">
+            <EntityTypeMapping TypeName="schoolDBModel.CustomerAddress">
+              <MappingFragment StoreEntitySet="CustomerAddresses">
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="AddressID" ColumnName="AddressID" />
+                <ScalarProperty Name="AddressTypeID" ColumnName="AddressTypeID" />
+                <ScalarProperty Name="AddressTypeNr" ColumnName="AddressTypeNr" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Customers">
+            <EntityTypeMapping TypeName="schoolDBModel.Customer">
+              <MappingFragment StoreEntitySet="Customers">
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="FName" ColumnName="FName" />
+                <ScalarProperty Name="LName" ColumnName="LName" />
+                <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InvoicePositions">
+            <EntityTypeMapping TypeName="schoolDBModel.InvoicePosition">
+              <MappingFragment StoreEntitySet="InvoicePositions">
+                <ScalarProperty Name="InvoiceID" ColumnName="InvoiceID" />
+                <ScalarProperty Name="PositionNr" ColumnName="PositionNr" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Invoices">
+            <EntityTypeMapping TypeName="schoolDBModel.Invoice">
+              <MappingFragment StoreEntitySet="Invoices">
+                <ScalarProperty Name="InvoiceID" ColumnName="InvoiceID" />
+                <ScalarProperty Name="InvDate" ColumnName="InvDate" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="IBAN" ColumnName="IBAN" />
+                <ScalarProperty Name="DelAddressID" ColumnName="DelAddressID" />
+                <ScalarProperty Name="DelAddressTypeID" ColumnName="DelAddressTypeID" />
+                <ScalarProperty Name="InvAddressID" ColumnName="InvAddressID" />
+                <ScalarProperty Name="InvAddressTypeID" ColumnName="InvAddressTypeID" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="Delivered" ColumnName="Delivered" />
+                <ScalarProperty Name="Paid" ColumnName="Paid" />
+                <ScalarProperty Name="Cancelled" ColumnName="Cancelled" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="schoolDBModel.Product">
+              <MappingFragment StoreEntitySet="Products">
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="getInvoicePositions" FunctionName="schoolDBModel.Store.getInvoicePositions">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="schoolDBModel.getInvoicePositions_Result">
+                <ScalarProperty Name="InvoiceID" ColumnName="InvoiceID" />
+                <ScalarProperty Name="InvDate" ColumnName="InvDate" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="Delivered" ColumnName="Delivered" />
+                <ScalarProperty Name="Paid" ColumnName="Paid" />
+                <ScalarProperty Name="Cancelled" ColumnName="Cancelled" />
+                <ScalarProperty Name="PositionNr" ColumnName="PositionNr" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Discount1" ColumnName="Discount1" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="PosAmount" ColumnName="PosAmount" />
+                <ScalarProperty Name="Customer" ColumnName="Customer" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Kein" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -33,5 +33,16 @@ namespace WinFormDB1.Properties {
                 return ((string)(this["dbConnection"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(localdb)\\mssqllocalDB;Initial Catalog=schoolDB;Integrated Security=T" +
+            "rue")]
+        public string dbConnection2 {
+            get {
+                return ((string)(this["dbConnection2"]));
+            }
+        }
     }
 }

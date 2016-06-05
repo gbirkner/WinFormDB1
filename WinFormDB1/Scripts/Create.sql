@@ -162,6 +162,92 @@ CREATE TABLE InvoicePositions (
 	Amount			real NOT NULL DEFAULT 0,
 
 	CONSTRAINT pk_InvoicePositions PRIMARY KEY (InvoiceID, PositionNr),
+	CONSTRAINT fk_InvoicePositionsInvoice FOREIGN KEY (InvoiceID) REFERENCES Invoices(InvoiceID),
 	CONSTRAINT fk_InvoicePositionsProduct FOREIGN KEY (ProductID) REFERENCES Products(ProductID)
 );
 
+
+
+-- Stored Procedures -------------------
+
+if object_ID('getInvoicePositions', 'P') IS NOT NULL
+	DROP PROC getInvoicePositions;
+
+go
+CREATE PROCEDURE getInvoicePositions
+	@customerID		int
+AS
+	SELECT i.InvoiceID, i.InvDate, i.Discount, i.Delivered, i.Paid, i.Cancelled,
+		ip.PositionNr, ip.Quantity, ip.Discount, ip.Amount, PosAmount = ip.Amount * ip.Quantity,
+		Customer = LTRIM(c.FName + ' ' + c.LName)
+	FROM Invoices i
+		INNER JOIN InvoicePositions ip ON ip.InvoiceID = i.InvoiceID
+		INNER JOIN Customers c ON c.CustomerID = i.CustomerID
+	WHERE i.CustomerID = @customerID
+RETURN 0;
+
+go
+
+-- Functions ------------------------------
+
+
+IF Object_ID('getNextAddressTypeNr') IS NOT NULL
+	DROP FUNCTION getInvoiceAmount
+
+go
+
+CREATE FUNCTION getInvoiceAmount
+(
+	@invoiceID		INT,
+	@withDiscount	BIT
+)
+RETURNS REAL
+AS
+BEGIN
+	DECLARE @result REAL
+
+	IF @withDiscount = 0 BEGIN
+		SELECT @result = SUM(Quantity * Amount)
+		FROM InvoicePositions
+		WHERE InvoiceID = @invoiceID
+	END ELSE BEGIN
+		SELECT @result = SUM((Quantity * Amount) * (100 - Discount) / 100) 
+		FROM InvoicePositions	
+		WHERE InvoiceID = @invoiceID
+	END
+
+
+	IF @result IS NULL
+		SET @result = -1
+
+	return @result
+
+END
+
+
+go
+
+IF Object_ID('getNextAddressTypeNr') IS NOT NULL
+	DROP FUNCTION getInvoiceAmount
+
+go
+
+CREATE FUNCTION getNextAddressTypeNr
+(
+	@customerID		int,
+	@addressID		int,
+	@addressTypeID	char(1)
+)
+RETURNS INT
+AS
+BEGIN
+	DECLARE @result	int
+	SELECT @result = MAX(AddressTypeNr) + 1
+	FROM CustomerAddresses
+	WHERE CustomerID=@customerID AND AddressID=@addressID AND AddressTypeID=@addressTypeID
+
+
+	IF @result IS NULL 
+		SET @result = 1
+	RETURN @result
+END
