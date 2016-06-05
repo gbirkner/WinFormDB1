@@ -1,0 +1,252 @@
+CountryID;Title;IntTitle;ShortTitle;Capital;Continent;Currency;Domain;CountryCode
+AF;Afghanistan;;;Kabul;Asia;AFN;af;93
+EG;Ägypten;;;Kairo;Africa;EGP;eg;20
+AX;Aland;;;Mariehamn;Europe;EUR;ax;35818
+AL;Albanien;;;Tirana;Europe;ALL;al;355
+DZ;Algerien;;;Algier;Africa;DZD;dz;213
+AS;Amerikanisch-Samoa;;;Pago-Pago;Australia;USD;as;1684
+VI;Amerikanische Jungferninseln;;;Charlotte Amalie;South America;USD;vi;1340
+AD;Andorra;;;Andorra la Vella;Europe;EUR;ad;376
+AO;Angola;;;Luanda;Africa;AOA;ao;244
+AI;Anguilla;;;The Valley;North America;XCD;ai;1264
+AQ;Antarktis;;;Juneau;Antarctica;;aq;672
+AG;Antigua und Barbuda;;;Saint John's;North America;XCD;ag;1268
+GQ;Äquatorialguinea;;;Malabo;Africa;XAF;gq;240
+AR;Argentinien;;;Buenos Aires;South America;ARS;ar;54
+AM;Armenien;;;Eriwan;Asia;AMD;am;374
+AW;Aruba;;;Oranjestad;North America;ANG;aw;297
+AC;Ascension;;;Georgetown;Africa;;ac;247
+AZ;Aserbaidschan;;;Baku;Asia;AZN;az;994
+ET;Äthiopien;;;Addis Abeba;Africa;ETB;et;251
+AU;Australien;;;Canberra;Australia;AUD;au;61
+BS;Bahamas;;;Nassau;North America;BSD;bs;1242
+BH;Bahrain;;;Manama;Asia;BHD;bh;973
+BD;Bangladesch;;;Dhaka;Asia;BDT;bd;880
+BB;Barbados;;;Bridgetown;North America;BBD;bb;1246
+BE;Belgien;;;Brüssel;Europe;EUR;be;32
+BZ;Belize;;;Belmopan;North America;BZD;bz;51
+BJ;Benin;;;Porto Novo;Africa;XOF;bj;229
+BM;Bermuda;;;Hamilton;North America;BMD;bm;1441
+BT;Bhutan;;;Thimphu;Asia;BTN;bt;975
+BO;Bolivien;;;Sucre;South America;BOB;bo;591
+BA;Bosnien und Herzegowina;;;Sarajevo;Europe;BAM;ba;387
+BW;Botswana;;;Gaborone;Africa;BWP;bw;267
+BV;Bouvetinsel;;;(Forschungsinsel);Antarctica;NOK;bv;
+BR;Brasilien;;;Brasília;South America;BRL;br;55
+VG;Britische Jungferninseln;;;Road Town;North America;USD;vg;1284
+IO;Britisches Territorium im Indischen Ozean;;;-/-;Asia;USD;io;
+BN;Brunei;;;Bandar Seri Begawan;Asia;BND;bn;673
+BG;Bulgarien;;;Sofia;Europe;BGN;bg;359
+BF;Burkina Faso;;;Ouagadougou;Africa;XOF;bf;226
+BI;Burundi;;;Bujumbura;Africa;BIF;bi;257
+CL;Chile;;;Santiago;South America;CLP;cl;56
+CN;China, Volksrepublik;;;Peking (Beijing);Asia;CNY;cn;86
+CK;Cookinseln;;;Avarua;Australia;NZD;ck;682
+CR;Costa Rica;;;San José;North America;CRC;cr;56
+DK;Dänemark;;;Kopenhagen;Europe;DKK;dk;45
+DE;Deutschland;;;Berlin;Europe;EUR;de;49
+SH;Die Kronkolonie St. Helena und Nebengebiete;;;Jamestown;Africa;SHP;sh;290
+DG;Diego Garcia;;;Diego Garcia (Hauptinsel);Africa;;;246
+DM;Dominica;;;Roseau;North America;XCD;dm;1767
+DO;Dominikanische Republik;;;Santo Domingo;South America;DOP;do;1809
+DJ;Dschibuti;;;Dschibuti;Africa;DJF;dj;253
+EC;Ecuador;;;Quito;South America;USD;ec;593
+SV;El Salvador;;;San Salvador;North America;SVC;sv;53
+ER;Eritrea;;;Asmara (Asmera);Africa;ERN;er;291
+EE;Estland;;;Tallinn (Reval);Europe;EEK;ee;372
+EU;Europäische Union;;;Brüssel;Europe;EUR;eu;3883
+FK;Falklandinseln;;;Port Stanley;Africa;FLP;fk;500
+FO;Färöer;;;Tórshavn;Europe;DKK;fo;298
+FJ;Fidschi;;;Suva;Australia;FJD;fj;679
+FI;Finnland;;;Helsinki;Europe;EUR;fi;358
+FR;Frankreich;;;Paris;Europe;EUR;fr;33
+GF;Französisch-Guayana;;;Cayenne;South America;EUR;gf;594
+PF;Französisch-Polynesien;;;Papeete;Australia;XPF;pf;689
+TF;Französische Süd- und Antarktisgebiete;;;Port-aux-Français;Antarctica;EUR;tf;
+GA;Gabun;;;Libreville;Africa;XAF;ga;241
+GM;Gambia;;;Banjul;Africa;GMD;gm;220
+GE;Georgien;;;Tiflis;Europe;GEL;ge;995
+GH;Ghana;;;Accra;Africa;GHC;gh;233
+GI;Gibraltar;;;Gibraltar (Stadt);Africa;GIP;gi;350
+GD;Grenada;;;St. George's;North America;XCD;gd;1473
+GR;Griechenland;;;Athen;Europe;EUR;gr;30
+GL;Grönland;;;Nuuk;North America;DKK;gl;299
+GP;Guadeloupe;;;Basse-Terre;North America;EUR;gp;590
+GU;Guam;;;Hagåtña;Asia;USD;gu;1671
+GT;Guatemala;;;Guatemala-Stadt;North America;GTQ;gt;52
+GG;Guernsey;;;St. Peter Port;Europe;GGP;gg;44148
+GN;Guinea;;;Conakry;Africa;GNF;gn;224
+GW;Guinea-Bissau;;;Bissau;Africa;XOF;gw;245
+GY;Guyana;;;Georgetown;South America;GYD;gy;592
+HT;Haiti;;;Port-au-Prince;North America;USD;ht;59
+HM;Heard und McDonaldinseln;;;-/-;Australia;AUD;hm;
+HN;Honduras;;;Tegucigalpa;North America;HNL;hn;54
+HK;Hongkong;;;-/-;Asia;HNL;hk;852
+IN;Indien;;;Neu-Delhi;Asia;ISK;in;91
+ID;Indonesien;;;Jakarta;Asia;INR;id;62
+IQ;Irak;;;Bagdad;Asia;IDR;iq;964
+IR;Iran;;;Teheran;Asia;IRR;ir;98
+IE;Irland;;;Dublin;Europe;EUR;ie;353
+IS;Island;;;Reykjavík;Europe;HUF;is;354
+IM;Isle of Man;;;Douglas;Europe;IMP;im;44
+IL;Israel;;;Jerusalem;Asia;ILS;il;972
+IT;Italien;;;Rom;Europe;EUR;it;39
+JM;Jamaika;;;Kingston;North America;JMD;jm;1876
+JP;Japan;;;Tokio;Asia;JPY;jp;81
+YE;Jemen;;;Sanaa;Asia;YER;ye;967
+JE;Jersey;;;Saint Helier;Europe;JEP;je;44
+JO;Jordanien;;;Amman;Asia;JOD;jo;962
+KY;Kaimaninseln;;;George Town;North America;KYD;ky;1345
+KH;Kambodscha;;;Phnom Penh;Asia;KHR;kh;855
+CM;Kamerun;;;Yaoundé;Africa;XAF;cm;237
+CA;Kanada;;;Ottawa;North America;CAD;ca;1NXX
+IC;Kanarische Inseln;;;Santa Cruz;Europe;;;
+CV;Kap Verde;;;Praia;Africa;CVE;cv;238
+KZ;Kasachstan;;;Astana;Asia;KZT;kz;7
+QA;Katar;;;Doha;Asia;QAR;qa;974
+KE;Kenia;;;Nairobi;Africa;KES;ke;254
+KG;Kirgisistan;;;Bischkek;Asia;KGS;kg;996
+KI;Kiribati;;;Bairiki;Australia;AUD;ki;686
+CC;Kokosinseln;;;West Island;Asia;AUD;cc;
+CO;Kolumbien;;;Santa Fé de Bogotá;South America;COP;co;57
+KM;Komoren;;;Moroni;Africa;KMF;km;269
+CD;Kongo, Demokratische Republik;;;Kinshasa;Africa;CDF;cd;243
+HR;Kroatien;;;Zagreb;Europe;HRK;hr;385
+CU;Kuba;;;Havanna;North America;CUP;cu;53
+KW;Kuwait;;;Kuwait;Asia;KWD;kw;965
+LA;Laos;;;Vientiane;Asia;LAK;la;856
+LS;Lesotho;;;Maseru;Africa;LSL;ls;266
+LV;Lettland;;;Rīga;Europe;LVL;lv;371
+LB;Libanon;;;Beirut;Asia;LBP;lb;961
+LR;Liberia, Republik;;;Monrovia;Africa;LRD;lr;231
+LY;Libyen;;;Tripolis;Africa;LYD;ly;218
+LI;Liechtenstein;;;Vaduz;Europe;CHF;li;423
+LT;Litauen;;;Wilna;Europe;LTL;lt;370
+LU;Luxemburg;;;Luxemburg;Europe;EUR;lu;352
+MO;Macao;;;-/-;Asia;MOP;mo;853
+MG;Madagaskar;;;Antananarivo;Africa;MGA;mg;261
+MW;Malawi;;;Lilongwe;Africa;MWK;mw;265
+MY;Malaysia;;;Kuala Lumpur;Asia;MYR;my;60
+MV;Malediven;;;Malé;Asia;MVR;mv;960
+ML;Mali, Republik;;;Bamako;Africa;XOF;ml;223
+MT;Malta;;;Valletta;Europe;EUR;mt;356
+MA;Marokko;;;Rabat;Africa;MAD;ma;211
+MH;Marshallinseln;;;Delap-Uliga-Darrit;Australia;USD;mh;692
+MQ;Martinique;;;Fort-de-France;North America;EUR;mq;596
+MR;Mauretanien;;;Nouakchott;Africa;MRO;mr;222
+MU;Mauritius;;;Port Louis;Africa;MUR;mu;230
+YT;Mayotte;;;Mamoudzou;Africa;EUR;yt;269
+MK;Mazedonien;;;Skopje;Europe;MKD;mk;389
+MX;Mexiko;;;Mexiko-Stadt;North America;MXN;mx;52
+FM;Mikronesien, Föderierte Staaten von;;;Palikir;Australia;USD;fm;691
+MD;Moldawien;;;Chişinău;Europe;MDL;md;373
+MC;Monaco;;;Monaco;Europe;EUR;mc;377
+MN;Mongolei;;;Ulaanbaatar;Asia;MNT;mn;976
+ME;Montenegro;;;Podgorica;Europe;;me;382
+MS;Montserrat;;;Plymouth;North America;XCD;ms;1664
+MZ;Mosambik;;;Maputo;Africa;MZM;mz;258
+MM;Myanmar;;;Rangun;Asia;MMK;mm;95
+NA;Namibia;;;Windhoek;Africa;ZAR;na;264
+NR;Nauru;;;Yaren;Australia;AUD;nr;674
+NP;Nepal;;;Kathmandu;Asia;NPR;np;977
+NC;Neukaledonien;;;Nouméa;Australia;XPF;nc;687
+NZ;Neuseeland;;;Wellington;Australia;NZD;nz;64
+NT;Neutrale Zone (Irak);;;-/-;Asia;;nt;
+NI;Nicaragua;;;Managua;North America;NIO;ni;55
+NL;Niederlande;;;Amsterdam;Europe;EUR;nl;31
+AN;Niederländische Antillen;;;Willemstad;North America;ANG;an;599
+NE;Niger;;;Niamey;Africa;XOF;ne;227
+NG;Nigeria;;;Abuja;Africa;NGN;ng;234
+NU;Niue;;;Alofi;Australia;NZD;nu;683
+KP;Nordkorea;;;Pjöngjang;Asia;KPW;kp;850
+MP;Nördliche Marianen;;;Saipan;Australia;USD;mp;1670
+NF;Norfolkinsel;;;Kingston;Australia;AUD;nf;6723
+NO;Norwegen;;;Oslo;Europe;NOK;no;47
+OM;Oman;;;Maskat;Asia;OMR;om;968
+AT;Österreich;;;Wien;Europe;EUR;at;43
+TL;Osttimor;;;Dili;Australia;IDR;tl;670
+PK;Pakistan;;;Islamabad;Asia;PKR;pk;92
+PS;Palästinensische Autonomiegebiete;;;Ramallah;Asia;;ps;970
+PW;Palau;;;Melekeok;Australia;USD;pw;680
+PA;Panama;;;Panama-Stadt;South America;USD;pa;57
+PG;Papua-Neuguinea;;;Port Moresby;Australia;PGK;pg;675
+PY;Paraguay;;;Asunción;South America;PYG;py;595
+PE;Peru;;;Lima;South America;PEN;pe;51
+PH;Philippinen;;;Manila;Asia;PHP;ph;63
+PN;Pitcairninseln;;;Adamstown;Australia;NZD;pn;649
+PL;Polen;;;Warschau;Europe;PLN;pl;48
+PT;Portugal;;;Lissabon;Europe;EUR;pt;351
+PR;Puerto Rico;;;San Juan;North America;USD;pr;1939
+CI;Republik Côte d’Ivoire;;;Yamoussoukro;Africa;XOF;ci;225
+CG;Republik Kongo;;;Brazzaville;Africa;XAF;cg;242
+RE;Réunion;;;Saint-Denis;Africa;EUR;re;262
+RW;Ruanda;;;Kigali;Africa;RWF;rw;250
+RO;Rumänien;;;Bukarest;Europe;RON;ro;40
+RU;Russische Föderation;;;Moskau;Asia;RUB;ru;7
+SB;Salomonen;;;Honiara;Australia;SBD;sb;677
+ZM;Sambia;;;Lusaka;Africa;ZMK;zm;260
+WS;Samoa;;;Apia;Australia;WST;ws;
+SM;San Marino;;;San Marino;Europe;EUR;sm;378
+ST;São Tomé und Príncipe;;;São Tomé;Africa;STD;st;239
+SA;Saudi-Arabien;;;Riad;Asia;SAR;sa;966
+SE;Schweden;;;Stockholm;Europe;SEK;se;46
+CH;Schweiz;;;Bern;Europe;CHF;ch;41
+SN;Senegal;;;Dakar;Africa;XOF;sn;221
+RS;Serbien;;;Belgrad;Europe;RSD;rs;381
+CS;Serbien und Montenegro;;;Belgrad;Europe;;cs;381
+SC;Seychellen;;;Victoria;Africa;SCR;sc;248
+SL;Sierra Leone;;;Freetown;Africa;SLL;sl;232
+ZW;Simbabwe;;;Harare;Africa;ZWD;zw;263
+SG;Singapur;;;Singapur;Asia;SGD;sg;65
+SK;Slowakei;;;Bratislava;Europe;SKK;sk;421
+SI;Slowenien;;;Ljubljana;Europe;SIT;si;386
+SO;Somalia, Demokratische Republik;;;Mogadischu;Africa;SOS;so;252
+SU;Sowjetunion;;;Moskau;Europe;;su;
+ES;Spanien;;;Madrid;Europe;EUR;es;34
+LK;Sri Lanka;;;Colombo;Asia;LKR;lk;94
+KN;St. Kitts und Nevis;;;Basseterre;North America;XCD;kn;1869
+LC;St. Lucia;;;Castries;South America;XCD;lc;1758
+PM;St. Pierre und Miquelon;;;Saint-Pierre;North America;EUR;pm;508
+VC;St. Vincent und die Grenadinen;;;Kingstown;South America;XCD;vc;1784
+ZA;Südafrika;;;Pretoria;Africa;ZAR;za;27
+SD;Sudan;;;Khartum;Africa;SDD;sd;249
+GS;Südgeorgien und die Südlichen Sandwichinseln;;;King Edward Point;South America;GBP;;
+KR;Südkorea;;;Seoul;Asia;KRW;kr;82
+SR;Suriname;;;Paramaribo;South America;SRD;sr;597
+SJ;Svalbard und Jan Mayen;;;Longyearbyen;Europe;NOK;sj;
+SZ;Swasiland;;;Mbabane;Africa;SZL;sz;268
+SY;Syrien;;;Damaskus;Asia;SYP;sy;963
+TJ;Tadschikistan;;;Duschanbe;Asia;RUB;tj;992
+TW;Taiwan;;;Taipeh;Asia;TWD;tw;886
+TZ;Tansania;;;Dodoma;Africa;TZS;tz;255
+TH;Thailand;;;Bangkok;Asia;THB;th;66
+TG;Togo;;;Lomé;Africa;XOF;tg;228
+TK;Tokelau;;;-/-;Australia;NZD;tk;690
+TO;Tonga;;;Nuku’alofa;Australia;TOP;to;676
+TT;Trinidad und Tobago;;;Port-of-Spain;South America;TTD;tt;1868
+TA;Tristan da Cunha;;;Jamestown;Africa;;;290
+TD;Tschad;;;N'Djamena;Africa;XAF;td;235
+CZ;Tschechien;;;Prag;Europe;CZK;cz;420
+TN;Tunesien;;;Tunis;Africa;TND;tn;216
+TR;Türkei;;;Ankara;Asia;TRY;tr;90
+TM;Turkmenistan;;;Aşgabat;Asia;TMM;tm;993
+TC;Turks- und Caicosinseln;;;Cockburn Town auf Grand Turk;North America;USD;tc;1649
+TV;Tuvalu;;;Funafuti;Australia;TVD;tv;688
+UG;Uganda;;;Kampala;Africa;UGX;ug;256
+UA;Ukraine;;;Kiew;Europe;UAH;ua;380
+HU;Ungarn;;;Budapest;Europe;HUF;hu;36
+UY;Uruguay;;;Montevideo;South America;UYU;uy;598
+UZ;Usbekistan;;;Taschkent;Asia;UZS;uz;998
+VU;Vanuatu;;;Port Vila;Australia;VUV;vu;678
+VA;Vatikanstadt;;;Vatikanstadt;Europe;EUR;va;3906
+VE;Venezuela;;;Caracas;South America;VEB;ve;58
+AE;Vereinigte Arabische Emirate;;;Abu Dhabi;Asia;AED;ae;971
+US;Vereinigte Staaten;;;Washington, D.C.;North America;USD;us;1
+GB;Vereinigtes Königreich;;;London;Europe;GBP;gb;44
+VN;Vietnam;;;Hà Nội;Asia;VND;vn;84
+WF;Wallis und Futuna;;;Mata-Utu;Australia;XPF;wf;681
+CX;Weihnachtsinsel;;;Flying Fish Cove;Asia;AUD;cx;61
+BY;Weißrussland;;;Minsk;Europe;BYR;by;375
+EH;Westsahara;;;El Aaiún;Africa;MAD;eh;
+CF;Zentralafrikanische Republik;;;Bangui;Africa;XAF;cf;236
+CY;Zypern, Republik;;;Nikosia;Asia;CYP;cy;357
