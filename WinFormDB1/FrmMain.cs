@@ -42,6 +42,19 @@ namespace WinFormDB1 {
             
             dgvMain2.DataSource = sql.ToList();
 
+            
+
+
+        }
+
+        private void FrmMain_Load( object sender, EventArgs e ) {
+            // TODO: Diese Codezeile lädt Daten in die Tabelle "schoolDBDataSet.AddressTypes". Sie können sie bei Bedarf verschieben oder entfernen.
+            this.addressTypesTableAdapter.Fill( this.schoolDBDataSet.AddressTypes );
+
+
+        }
+
+        private void addressTypesBindingSource_CurrentChanged( object sender, EventArgs e ) {
 
         }
     }
