@@ -34,7 +34,7 @@ INSERT INTO AddressTypes
 
 DELETE FROM Countries;
 BULK INSERT Countries
-FROM 'D:\Data\Documents\RePos\WinFormDB1\WinFormDB1\Scripts\countrylist.csv'
+FROM 'C:\Users\gert\Source\Repos\WinFormDB1\WinFormDB1\Scripts\countrylist.csv'
 WITH (
 	FIRSTROW = 2,
 	FIELDTERMINATOR = ';',

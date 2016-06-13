@@ -244,7 +244,7 @@ BEGIN
 	DECLARE @result	int
 	SELECT @result = MAX(AddressTypeNr) + 1
 	FROM CustomerAddresses
-	WHERE CustomerID=@customerID AND AddressID=@addressID AND AddressTypeID=@addressTypeID
+	WHERE CustomerID=@customerID AND AddressTypeID=@addressTypeID
 
 
 	IF @result IS NULL 
